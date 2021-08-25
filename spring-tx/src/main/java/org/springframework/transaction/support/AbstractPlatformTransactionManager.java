@@ -848,6 +848,7 @@ public abstract class AbstractPlatformTransactionManager implements PlatformTran
 
 		}
 		finally {
+			// 调用resume 把SuspendedResourcesHolder 还原到transaction
 			cleanupAfterCompletion(status);
 		}
 	}

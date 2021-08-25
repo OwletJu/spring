@@ -107,6 +107,11 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 */
 	public AnnotationConfigApplicationContext(Class<?>... annotatedClasses) {
 		//调用构造函数
+		/**
+		 * 1, 实例化 BeanFactory
+		 * 2, BeanDefinitionReader
+		 * 3, BeanDefinitionScaner
+		 */
 		this();
 		//注册我们的配置类
 		register(annotatedClasses);

@@ -266,6 +266,7 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 			 * 注意看重写方法
 			 * 判断是不是基础的bean （是不是切面类、通知、切点等）
 			 * 判断是不是应该跳过 默认false （切面解析也在其中）
+			 * shouldSkip 里面解析所有切面
 			 */
 			if (isInfrastructureClass(beanClass) || shouldSkip(beanClass, beanName)) {
 				this.advisedBeans.put(cacheKey, Boolean.FALSE);

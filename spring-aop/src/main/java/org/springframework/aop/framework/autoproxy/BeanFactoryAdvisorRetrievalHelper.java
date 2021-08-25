@@ -73,7 +73,9 @@ public class BeanFactoryAdvisorRetrievalHelper {
 		String[] advisorNames = this.cachedAdvisorBeanNames;
 		if (advisorNames == null) {
 			/**
+			 *
 			 * 去我们的容器中获取到实现了Advisor接口的实现类
+			 *
 			 * 而我们的事务注解@EnableTransactionManagement 导入了一个叫ProxyTransactionManagementConfiguration配置类
 			 * 而在这个配置类中配置了
 			 * @Bean(name = TransactionManagementConfigUtils.TRANSACTION_ADVISOR_BEAN_NAME)

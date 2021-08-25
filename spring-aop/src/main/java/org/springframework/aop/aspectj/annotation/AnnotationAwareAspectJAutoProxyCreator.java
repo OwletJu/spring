@@ -98,6 +98,7 @@ public class AnnotationAwareAspectJAutoProxyCreator extends AspectJAwareAdvisorA
 		List<Advisor> advisors = super.findCandidateAdvisors();
 		//找出Aspect相关的信息之后封装为一个advisor
 		if (this.aspectJAdvisorsBuilder != null) {
+			// 调用buildAspectJAdvisors 解析所有的切面
 			advisors.addAll(this.aspectJAdvisorsBuilder.buildAspectJAdvisors());
 		}
 		//返回我们所有的通知

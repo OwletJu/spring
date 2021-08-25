@@ -292,7 +292,7 @@ public abstract class TransactionAspectSupport implements BeanFactoryAware, Init
 
 		//处理声明式事务
 		if (txAttr == null || !(tm instanceof CallbackPreferringPlatformTransactionManager)) {
-			//有没有必要创建事务
+			//有没有必要创建事务 doBegin 开启事物
 			TransactionInfo txInfo = createTransactionIfNecessary(tm, txAttr, joinpointIdentification);
 
 			Object retVal;

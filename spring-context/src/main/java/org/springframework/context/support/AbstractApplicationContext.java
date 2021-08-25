@@ -826,7 +826,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 		}
 		//容器中没有的话
 		else {
-			//spring ioc显示的new 一个SimpleApplicationEventMulticaster对象保存在applicatoinContext对象中
+			//spring ioc显示的new 一个SimpleApplicationEventMulticaster对象保存在applicationContext对象中
 			this.applicationEventMulticaster = new SimpleApplicationEventMulticaster(beanFactory);
 			//并且注入到容器中
 			beanFactory.registerSingleton(APPLICATION_EVENT_MULTICASTER_BEAN_NAME, this.applicationEventMulticaster);
@@ -889,7 +889,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 			getApplicationEventMulticaster().addApplicationListener(listener);
 		}
 
-		//获取bean定义中的监听器对象
+		//获取bean定义中的监听器对象 接口方式的监听器就是在这里注册到多播器里
 		String[] listenerBeanNames = getBeanNamesForType(ApplicationListener.class, true, false);
 		//把监听器的名称注册到我们的多播器上
 		for (String listenerBeanName : listenerBeanNames) {

@@ -772,6 +772,8 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 		}
 
 		//或有的bean的名称 ...........到这里所有的单实例的bean已经记载到单实例bean到缓存中
+		// 到这里说明所有的非懒加载的 singleton beans 已经完成了初始化
+		//  如果我们定义的 bean 是实现了 SmartInitializingSingleton 接口的，那么在这里得到回调
 		for (String beanName : beanNames) {
 			//从单例缓存池中获取所有的对象
 			Object singletonInstance = getSingleton(beanName);

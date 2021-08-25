@@ -65,7 +65,7 @@ final class PostProcessorRegistrationDelegate {
 	public static void invokeBeanFactoryPostProcessors(
 			ConfigurableListableBeanFactory beanFactory, List<BeanFactoryPostProcessor> beanFactoryPostProcessors) {
 
-		//调用BeanDefinitionRegistryPostProcessor的后置处理器 Begin
+//-------------------------------------调用BeanDefinitionRegistryPostProcessor的后置处理器 Begin------------------------------------------------
 		// 定义已处理的后置处理器
 		Set<String> processedBeans = new HashSet<>();
 
@@ -99,7 +99,7 @@ final class PostProcessorRegistrationDelegate {
 			//定义一个集合用户保存当前准备创建的BeanDefinitionRegistryPostProcessor
 			List<BeanDefinitionRegistryPostProcessor> currentRegistryProcessors = new ArrayList<>();
 
-			//第一步:去容器中获取BeanDefinitionRegistryPostProcessor的bean的处理器名称
+			//#################### 第一步:去容器中获取BeanDefinitionRegistryPostProcessor的bean的处理器名称
 			String[] postProcessorNames =
 					beanFactory.getBeanNamesForType(BeanDefinitionRegistryPostProcessor.class, true, false);
 			//循环筛选出来的匹配BeanDefinitionRegistryPostProcessor的类型名称

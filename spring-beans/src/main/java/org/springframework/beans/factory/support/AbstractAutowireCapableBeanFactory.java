@@ -541,6 +541,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	/**
 	 * 真的创建bean的逻辑,该方法是最复杂的包含了调用构造函数,给bean的属性赋值
 	 * 调用bean的初始化操作以及 生成代理对象 都是在这里
+	 * doCreateBean 中的三个细节，一个是创建 Bean 实例的 createBeanInstance 方法，一个是依赖注入的 populateBean 方法，还有就是回调方法 initializeBean
 	 * @param beanName bean的名称
 	 * @param mbd bean的定义
 	 * @param args 传入的参数
@@ -1918,7 +1919,8 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		}
 
 		try {
-			//调用初始化方法
+			//调用初始化方法 如果Bean实现了InitializingBean接口，调用afterPropertiesSet方法;
+			// 或者如果Bean定义了init-method方法，则调用Bean的init-method方法;
 			invokeInitMethods(beanName, wrappedBean, mbd);
 		}
 		catch (Throwable ex) {

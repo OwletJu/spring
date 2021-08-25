@@ -54,7 +54,7 @@ public class ProxyTransactionManagementConfiguration extends AbstractTransaction
 	}
 
 	/**
-	 * 事务属性源对象:用于获取事务属性对象
+	 * 事务属性源对象:用于获取事务属性对象 解析注解@Transactional
 	 * @return
 	 */
 	@Bean
